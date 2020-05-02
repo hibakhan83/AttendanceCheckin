@@ -1,13 +1,13 @@
 const router = require('express').Router();
 let Attendance = require('../models/attendance.model');
 
-router.route('/').get((req, res) => {
+router.route('/event/:id').get((req, res) => {
   Attendance.find()
     .then(attendances => res.json(attendances))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-router.route('/add').post((req, res) => {
+router.route('/event/:id/add').post((req, res) => {
   const pantherId = Number(req.body.pantherId);
   const firstName = req.body.firstName;
   const lastName = req.body.lastName;
@@ -38,19 +38,19 @@ router.route('/add').post((req, res) => {
   .catch(err => res.status(400).json('Error: ' + err));
 });
 
-router.route('/:id').get((req, res) => {
+router.route('/event/:id').get((req, res) => {
   Attendance.findById(req.params.id)
     .then(attendance => res.json(attendance))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-router.route('/:id').delete((req, res) => {
+router.route('/event/:id').delete((req, res) => {
   Attendance.findByIdAndDelete(req.params.id)
     .then(() => res.json('Attendance deleted.'))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-router.route('/update/:id').post((req, res) => {
+router.route('/event/update/:id').post((req, res) => {
   Attendance.findById(req.params.id)
     .then(attendance => {
       attendance.pantherId = Number(req.body.pantherId);

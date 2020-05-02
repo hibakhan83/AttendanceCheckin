@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route} from "react-router-dom";
 
 import Navbar from "./components/navbar.component"
 import AttendancesList from "./components/attendances-list.component";
+import EventsList from "./components/events-list.component";
 import EditAttendance from "./components/edit-attendance.component";
 import CreateAttendance from "./components/create-attendance.component";
 import CreateUser from "./components/create-user.component";
@@ -14,7 +15,8 @@ function App() {
       <div className="container">
       <Navbar />
       <br/>
-      <Route path="/" exact component={AttendancesList} />
+      <Route path="/" exact component={EventsList} />
+      <Route path="/event/:id" exact component={AttendancesList} />
       <Route path="/edit/:id" component={EditAttendance} />
       <Route path="/create" component={CreateAttendance} />
       <Route path="/user" component={CreateUser} />
