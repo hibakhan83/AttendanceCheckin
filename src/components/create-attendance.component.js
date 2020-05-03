@@ -7,10 +7,16 @@ export default class CreateAttendance extends Component {
   constructor(props) {
     super(props);
 
-    this.onChangeUserfirstName = this.onChangeUserfirstName.bind(this);
-    this.onChangeDescription = this.onChangeDescription.bind(this);
-    this.onChangeDuration = this.onChangeDuration.bind(this);
-    this.onChangeDate = this.onChangeDate.bind(this);
+    this.onChangefirstName = this.onChangefirstName.bind(this);
+    this.onChangelastName = this.onChangelastName.bind(this);
+    this.onChangepantherId = this.onChangepantherId.bind(this);
+    this.onChangedepartment = this.onChangedepartment.bind(this);
+    this.onChangelevel = this.onChangelevel.bind(this);
+    this.onChangecampus = this.onChangecampus.bind(this);
+    this.onChangedegree = this.onChangedegree.bind(this);
+    this.onChangeemail = this.onChangeemail.bind(this);
+    this.onChangecollege = this.onChangecollege.bind(this);
+    this.onChangeyear = this.onChangeyear.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
@@ -44,27 +50,63 @@ export default class CreateAttendance extends Component {
 
   }
 
-  onChangeUserfirstName(e) {
+  onChangefirstName(e) {
     this.setState({
       firstName: e.target.value
+    });
+  }
+
+  onChangelastName(e) {
+    this.setState({
+      lastName: e.target.value
+    });
+  }
+
+  onChangepantherId(e) {
+    this.setState({
+      pantherId: e.target.value
     })
   }
 
-  onChangeDescription(e) {
+  onChangedepartment(e) {
     this.setState({
       department: e.target.value
     })
   }
 
-  onChangeDuration(e) {
+  onChangelevel(e) {
     this.setState({
-      year: e.target.value
+      level: e.target.value
     })
   }
 
-  onChangeDate(date) {
+  onChangecampus(e) {
     this.setState({
-      date: date
+      campus: e.target.value
+    })
+  }
+
+  onChangedegree(e) {
+    this.setState({
+      degree: e.target.value
+    })
+  }
+
+  onChangeemail(e) {
+    this.setState({
+      email: e.target.value
+    })
+  }
+
+  onChangecollege(e) {
+    this.setState({
+      college: e.target.value
+    })
+  }
+
+  onChangeyear(e) {
+    this.setState({
+      year: e.target.value
     })
   }
 
@@ -73,9 +115,7 @@ export default class CreateAttendance extends Component {
 
     const attendance = {
       firstName: this.state.firstName,
-      department: this.state.department,
-      year: this.state.year,
-      date: this.state.date
+      lastName: this.state.lastName
     }
 
     console.log(attendance);
@@ -92,12 +132,12 @@ export default class CreateAttendance extends Component {
       <h3>Create New Attendance Log</h3>
       <form onSubmit={this.onSubmit}>
         <div className="form-group"> 
-          <label>Name: </label>
+          <label>First Name: </label>
           <select ref="userInput"
               required
               className="form-control"
               value={this.state.firstName}
-              onChange={this.onChangeUserfirstName}>
+              onChange={this.onChangefirstName}>
               {
                 this.state.users.map(function(user) {
                   return <option 
@@ -108,33 +148,97 @@ export default class CreateAttendance extends Component {
               }
           </select>
         </div>
+
         <div className="form-group"> 
-          <label>department: </label>
-          <input  type="text"
+          <label>Last Name: </label>
+          <input type = "text"
+              required
+              className="form-control"
+              value={this.state.lastName}
+              onChange={this.onChangelastName}
+          />
+        </div>
+
+        <div className="form-group"> 
+          <label>Panther ID: </label>
+          <input type = "text"
+              required
+              className="form-control"
+              value={this.state.pantherId}
+              onChange={this.onChangepantherId}
+          />
+        </div>
+
+        <div className="form-group"> 
+          <label>Department: </label>
+          <input type = "text"
               required
               className="form-control"
               value={this.state.department}
-              onChange={this.onChangeDescription}
-              />
+              onChange={this.onChangedepartment}
+          />
         </div>
-        <div className="form-group">
-          <label>year (in minutes): </label>
-          <input 
-              type="text" 
+
+        <div className="form-group"> 
+          <label>Level: </label>
+          <input type = "text"
+              required
+              className="form-control"
+              value={this.state.level}
+              onChange={this.onChangelevel}
+          />
+        </div>
+
+        <div className="form-group"> 
+          <label>Campus: </label>
+          <input type = "text"
+              required
+              className="form-control"
+              value={this.state.campus}
+              onChange={this.onChangecampus}
+          />
+        </div>
+
+        <div className="form-group"> 
+          <label>Degree: </label>
+          <input type = "text"
+              required
+              className="form-control"
+              value={this.state.degree}
+              onChange={this.onChangedegree}
+          />
+        </div>
+
+        <div className="form-group"> 
+          <label>Email: </label>
+          <input type = "text"
+              required
+              className="form-control"
+              value={this.state.email}
+              onChange={this.onChangeemail}
+          />
+        </div>
+
+        <div className="form-group"> 
+          <label>College: </label>
+          <input type = "text"
+              required
+              className="form-control"
+              value={this.state.college}
+              onChange={this.onChangecollege}
+          />
+        </div>
+
+        <div className="form-group"> 
+          <label>Year: </label>
+          <input type = "text"
+              required
               className="form-control"
               value={this.state.year}
-              onChange={this.onChangeDuration}
-              />
+              onChange={this.onChangeyear}
+          />
         </div>
-        <div className="form-group">
-          <label>Date: </label>
-          <div>
-            <DatePicker
-              selected={this.state.date}
-              onChange={this.onChangeDate}
-            />
-          </div>
-        </div>
+
 
         <div className="form-group">
           <input type="submit" value="Create Attendance Log" className="btn btn-primary" />

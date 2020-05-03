@@ -15,7 +15,7 @@ const Attendance = props => (
     <td>{props.attendance.college}</td>
     <td>{props.attendance.year}</td>
     <td>
-      <Link to={"/edit/"+props.attendance._id}>Mark Present</Link> {/*  | <a href="" onClick={() => { props.deleteAttendance(props.attendance._id) }}>delete</a> */}
+      <Link to={"/edit/"+props.attendance._id}>Mark Present</Link> | <a href = "#" onClick={() => { props.deleteAttendance(props.attendance._id) }}>delete</a>
     </td>
   </tr>
 )
