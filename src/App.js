@@ -7,6 +7,7 @@ import AttendancesList from "./components/attendances-list.component";
 import EditAttendance from "./components/edit-attendance.component";
 import CreateAttendance from "./components/create-attendance.component";
 import CreateUser from "./components/create-user.component";
+import EventsList from "./components/events-list.component";
 
 function App() {
   return (
@@ -14,7 +15,8 @@ function App() {
       <div className="container">
       <Navbar />
       <br/>
-      <Route path="/" exact component={AttendancesList} />
+      <Route path="/" exact component={EventsList} />
+      <Route path="/attendance" exact component={AttendancesList} />
       <Route path="/edit/:id" component={EditAttendance} />
       <Route path="/create" component={CreateAttendance} />
       <Route path="/user" component={CreateUser} />
