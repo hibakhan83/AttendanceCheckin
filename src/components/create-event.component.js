@@ -103,7 +103,7 @@ export default class CreateEvent extends Component {
           </select>
         </div>
         <div className="form-group"> 
-          <label>description: </label>
+          <label>Description: </label>
           <input  type="text"
               required
               className="form-control"
@@ -121,7 +121,7 @@ export default class CreateEvent extends Component {
             />
         </div>
         <div className="form-group">
-          <label>year: </label>
+          <label>Year: </label>
           <input 
               type="text" 
               className="form-control"
