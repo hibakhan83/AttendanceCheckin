@@ -4,6 +4,7 @@ import axios from 'axios';
 
 const Event = props => (
   <tr>
+    <td><button>Select</button></td>
     <td>{props.event.name}</td>   
     <td>{props.event.description}</td>
     <td>{props.event.semester}</td>
@@ -51,10 +52,11 @@ export default class EventsList extends Component {
     render() {
       return (
         <div>
-          <h3>Logged Events</h3>
+          <h3><center>Scheduled Events</center></h3>
           <table className="table">
             <thead className="thead-light">
               <tr>
+                <th></th>
                 <th>Name</th>
                 <th>Description</th>
                 <th>Semester</th>
