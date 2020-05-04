@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-
 const Attendance = props => (
   <tr>
     <td>{props.attendance.pantherId}</td>
@@ -16,7 +15,6 @@ const Attendance = props => (
     <td>{props.attendance.college}</td>
     <td>{props.attendance.year}</td>
     <td>
-{/* <a href="#" onClick={pres}>{present}</a> */}
       <Link to={"/edit/"+props.attendance._id}>Mark Present</Link> {/*  | <a href="" onClick={() => { props.deleteAttendance(props.attendance._id) }}>delete</a> */}
     </td>
   </tr>
@@ -36,6 +34,7 @@ export default class AttendancesList extends Component {
       .then(response => {
         this.setState({ attendances: response.data })
       })
+
       .catch((error) => {
         console.log(error);
       })

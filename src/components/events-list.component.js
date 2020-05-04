@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const Event = props => (
   <tr>
-    <td><button>Select</button></td>
+    <td><Link to={"/event/"+props.event._id}>Select</Link> </td>
     <td>{props.event.name}</td>   
     <td>{props.event.description}</td>
     <td>{props.event.semester}</td>
@@ -14,6 +14,11 @@ const Event = props => (
     </td>
   </tr>
 )
+
+function specificPage(id){
+   console.log("You clicked");
+}
+
 
 export default class EventsList extends Component {
     constructor(props) {

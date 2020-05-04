@@ -10,6 +10,7 @@ import CreateUser from "./components/create-user.component";
 import EventsList from "./components/events-list.component";
 import CreateEvent from "./components/create-event.component";
 import EditEvent from "./components/edit-event.component";
+import SpecificEvent from "./components/specific-event.component";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <br/>
       <Route path="/" exact component={EventsList} />
       <Route path="/events"  component={EventsList} />
+      <Route path="/event/:id" component={SpecificEvent} />
       <Route path="/attendance" exact component={AttendancesList} />
       <Route path="/edit/:id" component={EditAttendance} />
       <Route path="/create" component={CreateAttendance} />
