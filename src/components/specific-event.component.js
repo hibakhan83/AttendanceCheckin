@@ -30,7 +30,11 @@ export default class AttendancesList extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:5000/users/')
+    axios.get('http://localhost:5000/users/', {
+        params: {
+          firstName: "Stephen"
+        }
+      })
       .then(response => {
         this.setState({ attendances: response.data })
       })
