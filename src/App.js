@@ -8,6 +8,8 @@ import EditAttendance from "./components/edit-attendance.component";
 import CreateAttendance from "./components/create-attendance.component";
 import CreateUser from "./components/create-user.component";
 import EventsList from "./components/events-list.component";
+import CreateEvent from "./components/create-event.component";
+import EditEvent from "./components/edit-event.component";
 
 function App() {
   return (
@@ -16,10 +18,13 @@ function App() {
       <Navbar />
       <br/>
       <Route path="/" exact component={EventsList} />
+      <Route path="/events" exact component={EventsList} />
       <Route path="/attendance" exact component={AttendancesList} />
       <Route path="/edit/:id" component={EditAttendance} />
       <Route path="/create" component={CreateAttendance} />
       <Route path="/user" component={CreateUser} />
+      <Route path="/create-event" component={CreateEvent} />
+      <Route path="/edit-event" component={EditEvent} />
       </div>
     </Router>
   );

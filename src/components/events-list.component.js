@@ -10,7 +10,7 @@ const Event = props => (
     <td>{props.event.semester}</td>
     <td>{props.event.year}</td>
     <td>
-      <Link to={"/edit/"+props.event._id}>Edit </Link>  | <a href="" onClick={() => { props.deleteEvent(props.event._id) }}>Delete</a> 
+      <Link to={"/edit-event/"+props.event._id}>Edit </Link>  | <a href="" onClick={() => { props.deleteEvent(props.event._id) }}>Delete</a> 
     </td>
   </tr>
 )
