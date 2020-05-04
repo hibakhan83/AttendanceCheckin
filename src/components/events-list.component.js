@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
+
+
 const Event = props => (
+  
   <tr>
     <td><Link to={"/event/"+props.event._id}>Select</Link> </td>
     <td>{props.event.name}</td>   
@@ -13,11 +16,8 @@ const Event = props => (
       <Link to={"/edit-event/"+props.event._id}>Edit </Link>  | <a href="" onClick={() => { props.deleteEvent(props.event._id) }}>Delete</a> 
     </td>
   </tr>
-)
 
-function specificPage(id){
-   console.log("You clicked");
-}
+)
 
 
 export default class EventsList extends Component {
@@ -40,6 +40,7 @@ export default class EventsList extends Component {
     }
   
     deleteEvent(id) {
+      console.log(id);
       axios.delete('http://localhost:5000/events/'+id)
         .then(response => { console.log(response.data)});
   

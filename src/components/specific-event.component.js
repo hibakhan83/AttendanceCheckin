@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
+
 const Attendance = props => (
   <tr>
     <td>{props.attendance.pantherId}</td>
@@ -15,10 +16,14 @@ const Attendance = props => (
     <td>{props.attendance.college}</td>
     <td>{props.attendance.year}</td>
     <td>
-      <Link to={"/edit/"+props.attendance._id}>Mark Present</Link> {/*  | <a href="" onClick={() => { props.deleteAttendance(props.attendance._id) }}>delete</a> */}
+      <Link to={"/edit/"+props.attendance._id}>Mark Present</Link> 
     </td>
   </tr>
 )
+
+var path = window.location.pathname;
+var res = path.split("/", 3);
+var res0 = res[2];
 
 export default class AttendancesList extends Component {
   constructor(props) {
@@ -30,15 +35,10 @@ export default class AttendancesList extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:5000/users/', {
-        params: {
-          firstName: "Stephen"
-        }
-      })
+    axios.get('http://localhost:5000/users/filtered-event/'+res0)
       .then(response => {
         this.setState({ attendances: response.data })
       })
-
       .catch((error) => {
         console.log(error);
       })
