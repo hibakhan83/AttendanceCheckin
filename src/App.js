@@ -24,7 +24,7 @@ function App() {
       <Route path="/create" component={CreateAttendance} />
       <Route path="/user" component={CreateUser} />
       <Route path="/create-event" component={CreateEvent} />
-      <Route path="/edit-event" component={EditEvent} />
+      <Route path="/edit-event/:id" component={EditEvent} />
       </div>
     </Router>
   );

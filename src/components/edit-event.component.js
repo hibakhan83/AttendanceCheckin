@@ -25,14 +25,14 @@ export default class EditEvent extends Component {
     axios.get('http://localhost:5000/events/'+this.props.match.params.id)
       .then(response => {
         this.setState({
-            name: this.state.name,
-            description: this.state.description,
-            semester: this.state.semester,
-            year: this.state.year,
+            name: response.data.name,
+            description: response.data.description,
+            semester: response.data.semester,
+            year: response.data.year,
         })   
       })
       .catch(function (error) {
-        console.log(error);
+        console.log("Component did not mount" + error);
       })
 
     // axios.get('http://localhost:5000/users/')
@@ -86,10 +86,10 @@ export default class EditEvent extends Component {
 
     console.log(event);
 
-    axios.post('http://localhost:5000/event/update/' + this.props.match.params.id, event)
+    axios.post('http://localhost:5000/events/update/' + this.props.match.params.id, event)
       .then(res => console.log(res.data));
 
-    window.location = '/';
+     window.location = '/';
   }
 
   render() {
