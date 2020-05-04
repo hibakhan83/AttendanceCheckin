@@ -7,8 +7,7 @@ import axios from 'axios';
 const Event = props => (
   
   <tr>
-    <td><Link to={"/event/"+props.event._id}>Select</Link> </td>
-    <td>{props.event.name}</td>   
+    <td><Link to={"/event/"+props.event._id}>{props.event.name}</Link> </td>  
     <td>{props.event.description}</td>
     <td>{props.event.semester}</td>
     <td>{props.event.year}</td>
@@ -62,7 +61,6 @@ export default class EventsList extends Component {
           <table className="table">
             <thead className="thead-light">
               <tr>
-                <th></th>
                 <th>Name</th>
                 <th>Description</th>
                 <th>Semester</th>
