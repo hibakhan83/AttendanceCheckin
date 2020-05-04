@@ -30,7 +30,7 @@ export default class AttendancesList extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:5000/attendances/')
+    axios.get('http://localhost:5000/users/')
       .then(response => {
         this.setState({ attendances: response.data })
       })
@@ -40,7 +40,7 @@ export default class AttendancesList extends Component {
   }
 
   deleteAttendance(id) {
-    axios.delete('http://localhost:5000/attendances/'+id)
+    axios.delete('http://localhost:5000/users/'+id)
       .then(response => { console.log(response.data)});
 
     this.setState({
