@@ -18,7 +18,7 @@ function App() {
       <Navbar />
       <br/>
       <Route path="/" exact component={EventsList} />
-      <Route path="/events" exact component={EventsList} />
+      <Route path="/events"  component={EventsList} />
       <Route path="/attendance" exact component={AttendancesList} />
       <Route path="/edit/:id" component={EditAttendance} />
       <Route path="/create" component={CreateAttendance} />
