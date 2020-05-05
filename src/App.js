@@ -11,6 +11,8 @@ import EventsList from "./components/events-list.component";
 import CreateEvent from "./components/create-event.component";
 import EditEvent from "./components/edit-event.component";
 import SpecificEvent from "./components/specific-event.component";
+import dataSearch from './components/Search.component';
+
 
 function App() {
   return (
@@ -27,6 +29,8 @@ function App() {
       <Route path="/user" component={CreateUser} />
       <Route path="/create-event" component={CreateEvent} />
       <Route path="/edit-event/:id" component={EditEvent} />
+      <Route path="/search" component={dataSearch} />
+
       </div>
     </Router>
   );
