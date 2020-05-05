@@ -16,7 +16,7 @@ If this does not run for you, install nodemon with:
 
 Make sure nodemon server is running and you see a message that says:
 
-"Server is running on port: 5000
+"Server is running on port: 5000<br>
 MongoDB database connection established successfully"
 
 
