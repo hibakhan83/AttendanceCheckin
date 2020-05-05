@@ -122,6 +122,8 @@ export const ExportCSV = ({csvData, fileName}) => {
     textAlign: 'right',
   };
   return (
-     <div style={divButton}><Button variant="warning" onClick={(e) => exportToCSV(csvData,fileName)}>Completed Checkin</Button></div>
+     <div style={divButton}><Button variant="warning" onClick={(e) => exportToCSV(csvData,fileName)}>Check-in Complete</Button></div>
   )
+
+
 }

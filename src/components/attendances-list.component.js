@@ -22,6 +22,8 @@ const Attendance = props => (
   </tr>
 )
 
+
+
 export default class AttendancesList extends Component {
   constructor(props) {
     super(props);
