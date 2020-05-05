@@ -7,15 +7,10 @@ export default class EditExercise extends Component {
   constructor(props) {
     super(props);
 
-    this.onChangeUserfirstName = this.onChangefirstName.bind(this);
-    this.onChangepantherId = this.onChangepantherId.bind(this);
-    this.onChangedepartment = this.onChangedepartment.bind(this);
-    this.onChangelevel = this.onChangelevel.bind(this);
-    this.onChangecampus = this.onChangecampus(this);
-    this.onChangedegree = this.onChangedegree(this);
-    this.onChangeemail = this.onChangeemail(this);
-    this.onChangecollege = this.onChangecollege(this);
-    this.onChangeyear = this.onChangeyear(this);
+    this.onChangeUserfirstName = this.onChangeUserfirstName.bind(this);
+    this.onChangeDescription = this.onChangeDescription.bind(this);
+    this.onChangeDuration = this.onChangeDuration.bind(this);
+    this.onChangeDate = this.onChangeDate.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
@@ -67,64 +62,65 @@ export default class EditExercise extends Component {
 
   }
 
-  onChangepantherId(e) {
+  onChangePantherId(e) {
     this.setState({
       pantherId: e.target.value
     })
   }
 
-  onChangefirstName(e) {
+  onChangeFirstName(e) {
     this.setState({
       firstName: e.target.value
     })
   }
-  onChangelastName(e) {
+  onChangeLastName(e) {
     this.setState({
       lastName: e.target.value
     })
   }
 
-  onChangedepartment(e) {
+  onChangeDepartment(e) {
     this.setState({
       department: e.target.value
     })
   }
 
-  onChangelevel(e) {
+  onChangeLevel(e) {
     this.setState({
       level: e.target.value
     })
   }
 
-  onChangecampus(e) {
+  onChangeCampus(e) {
     this.setState({
       campus: e.target.value
     })
   }
 
-  onChangedegree(e) {
+  onChangeDegree(e) {
     this.setState({
       degree: e.target.value
     })
   }
 
-  onChangeemail(e) {
+  onChangeEmail(e) {
     this.setState({
       email: e.target.value
     })
   }
 
-  onChangecollege(e) {
+  onChangeCollege(e) {
     this.setState({
       college: e.target.value
     })
   }
-
-  onChangeyear(e) {
+  onChangeYear(e) {
     this.setState({
       year: e.target.value
     })
   }
+
+
 
   onSubmit(e) {
     e.preventDefault();
@@ -156,12 +152,12 @@ export default class EditExercise extends Component {
       <h3>Edit Exercise Log</h3>
       <form onSubmit={this.onSubmit}>
         <div className="form-group"> 
-          <label>First Name: </label>
+          <label>Name: </label>
           <select ref="userInput"
               required
               className="form-control"
               value={this.state.firstName}
-              onChange={this.onChangefirstName}>
+              onChange={this.onChangeUserfirstName}>
               {
                 this.state.users.map(function(user) {
                   return <option 
@@ -173,94 +169,33 @@ export default class EditExercise extends Component {
           </select>
         </div>
         <div className="form-group"> 
-          <label>Last Name: </label>
-          <input  type="text"
-              required
-              className="form-control"
-              value={this.state.lastName}
-              onChange={this.onChangelastName}
-              />
-        </div>
-
-        <div className="form-group"> 
-          <label>Panther ID: </label>
-          <input  type="text"
-              required
-              className="form-control"
-              value={this.state.pantherId}
-              onChange={this.onChangepantherId}
-              />
-        </div>
-
-        <div className="form-group"> 
-          <label>Department: </label>
+          <label>department: </label>
           <input  type="text"
               required
               className="form-control"
               value={this.state.department}
-              onChange={this.onChangedepartment}
+              onChange={this.onChangeDescription}
               />
         </div>
-
-        <div className="form-group"> 
-          <label>Email: </label>
-          <input  type="text"
-              required
-              className="form-control"
-              value={this.state.email}
-              onChange={this.onChangeemail}
-              />
-        </div>
-
-        <div className="form-group"> 
-          <label>Level: </label>
-          <input  type="text"
-              required
-              className="form-control"
-              value={this.state.level}
-              onChange={this.onChangelevel}
-              />
-        </div>
-
-        <div className="form-group"> 
-          <label>Campus: </label>
-          <input  type="text"
-              required
-              className="form-control"
-              value={this.state.campus}
-              onChange={this.onChangecampus}
-              />
-        </div>
-
-        <div className="form-group"> 
-          <label>Degree: </label>
-          <input  type="text"
-              required
-              className="form-control"
-              value={this.state.degree}
-              onChange={this.onChangedegree}
-              />
-        </div>
-
-        <div className="form-group"> 
-          <label>Last Name: </label>
-          <input  type="text"
-              required
-              className="form-control"
-              value={this.state.college}
-              onChange={this.onChangecollege}
-              />
-        </div>
-
-        <div className="form-group"> 
-          <label>Year: </label>
-          <input  type="text"
-              required
+        <div className="form-group">
+          <label>year: </label>
+          <input 
+              type="text" 
               className="form-control"
               value={this.state.year}
-              onChange={this.onChangeyear}
+              onChange={this.onChangeDuration}
               />
         </div>
+        <div className="form-group">
+          <label>Date: </label>
+          <div>
+            <DatePicker
+              selected={this.state.date}
+              onChange={this.onChangeDate}
+            />
+          </div>
+        </div>
+
         <div className="form-group">
           <input type="submit" value="Edit Exercise Log" className="btn btn-primary" />
         </div>

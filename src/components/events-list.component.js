@@ -2,17 +2,22 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
+
+
 const Event = props => (
+  
   <tr>
-    <td>{props.event.name}</td>   
+    <td><Link to={"/event/"+props.event._id}>{props.event.name}</Link> </td>  
     <td>{props.event.description}</td>
     <td>{props.event.semester}</td>
     <td>{props.event.year}</td>
     <td>
-      <Link to={"/edit/"+props.event._id}>Edit </Link>  | <a href="" onClick={() => { props.deleteEvent(props.event._id) }}>Delete</a> 
+      <Link to={"/edit-event/"+props.event._id}>Edit </Link>  | <a href="" onClick={() => { props.deleteEvent(props.event._id) }}>Delete</a> 
     </td>
   </tr>
+
 )
+
 
 export default class EventsList extends Component {
     constructor(props) {
@@ -34,6 +39,7 @@ export default class EventsList extends Component {
     }
   
     deleteEvent(id) {
+      console.log(id);
       axios.delete('http://localhost:5000/events/'+id)
         .then(response => { console.log(response.data)});
   
@@ -51,7 +57,7 @@ export default class EventsList extends Component {
     render() {
       return (
         <div>
-          <h3>Logged Events</h3>
+          <h3><center>Scheduled Events</center></h3>
           <table className="table">
             <thead className="thead-light">
               <tr>
