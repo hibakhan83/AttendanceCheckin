@@ -27,14 +27,11 @@ const Attendance = props => (
 )
 
 
-<<<<<<< HEAD
 
 
 var path = window.location.pathname;
 var res = path.split("/", 3);
 var res0 = res[2];
-=======
->>>>>>> 614e19cc0f301117e748bd99388c866aec81548a
 
 export default class AttendancesList extends Component {
   constructor(props) {
