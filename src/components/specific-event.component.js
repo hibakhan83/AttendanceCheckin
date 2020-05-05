@@ -21,9 +21,7 @@ const Attendance = props => (
   </tr>
 )
 
-var path = window.location.pathname;
-var res = path.split("/", 3);
-var res0 = res[2];
+
 
 export default class AttendancesList extends Component {
   constructor(props) {
@@ -32,9 +30,14 @@ export default class AttendancesList extends Component {
     this.deleteAttendance = this.deleteAttendance.bind(this)
 
     this.state = {attendances: []};
+
+    
   }
 
   componentDidMount() {
+    var path = window.location.pathname;
+    var res = path.split("/", 3);
+    var res0 = res[2];
     axios.get('http://localhost:5000/users/filtered-event/'+res0)
       .then(response => {
         this.setState({ attendances: response.data })
