@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import Button from 'react-bootstrap/Button';
+import * as FileSaver from 'file-saver';
+import * as XLSX from 'xlsx';
+
+
 
 
 const Attendance = props => (
@@ -20,6 +25,9 @@ const Attendance = props => (
     </td>
   </tr>
 )
+
+
+
 
 var path = window.location.pathname;
 var res = path.split("/", 3);
@@ -63,6 +71,7 @@ export default class AttendancesList extends Component {
     return (
       <div>
         <h3>Logged Attendances</h3>
+        <ExportCSV csvData={this.state.attendances} fileName={this.state.fileName} />
         <table className="table">
           <thead className="thead-light">
             <tr>
@@ -86,4 +95,28 @@ export default class AttendancesList extends Component {
       </div>
     )
   }
+
+
+
+}
+
+export const ExportCSV = ({csvData, fileName}) => {
+
+  const fileType = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
+  const fileExtension = '.xlsx';
+
+  const exportToCSV = (csvData, fileName) => {
+      const ws = XLSX.utils.json_to_sheet(csvData);
+      const wb = { Sheets: { 'data': ws }, SheetNames: ['data'] };
+      const excelBuffer = XLSX.write(wb, { bookType: 'xlsx', type: 'array' });
+      const data = new Blob([excelBuffer], {type: fileType});
+      FileSaver.saveAs(data, fileName + fileExtension);
+  }
+  const divButton = {
+    color: 'white',
+    textAlign: 'right',
+  };
+  return (
+     <div style={divButton}><Button variant="warning" onClick={(e) => exportToCSV(csvData,fileName)}>Completed Checkin</Button></div>
+  )
 }
