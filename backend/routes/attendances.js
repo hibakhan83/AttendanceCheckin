@@ -18,6 +18,7 @@ router.route('/add').post((req, res) => {
   const email = req.body.email;
   const college = req.body.college;
   const year = Number(req.body.year);
+  const present = req.body.present;
 
   const newAttendance = new Attendance({
     pantherId,
@@ -30,6 +31,7 @@ router.route('/add').post((req, res) => {
     email,
     college,
     year,
+    present,
 
   });
 
@@ -63,6 +65,7 @@ router.route('/update/:id').post((req, res) => {
       attendance.email = req.body.email;
       attendance.college = req.body.college;
       attendance.year = Number(req.body.year);
+      attendance.present = req.body.present;
 
 
       attendance.save()

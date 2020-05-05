@@ -20,8 +20,11 @@ const Attendance = props => (
     <td>{props.attendance.email}</td>
     <td>{props.attendance.college}</td>
     <td>{props.attendance.year}</td>
+    <td>{props.attendance.present}</td>
     <td>
-      <Link to={"/edit/"+props.attendance._id}>Mark Present</Link> 
+    <form><input type="submit" value="Change" className="btn btn-primary" />
+    {/* <a href="" onClick={() => { props.changeAttendance(props.attendance._id) }}>Change Attendance</a>  */}
+    </form>
     </td>
   </tr>
 )
@@ -71,7 +74,28 @@ export default class AttendancesList extends Component {
       return <Attendance attendance={currentattendance} deleteAttendance={this.deleteAttendance} key={currentattendance._id}/>;
     })
   }
+  onChangeAttendance(e) {
+    this.setState({
+      year: 'yes'
+    })
+  }
 
+
+
+  onSubmit(e) {
+    e.preventDefault();
+
+    const event = {
+      present: this.state.present
+    }
+
+    console.log(event);
+
+    axios.post('http://localhost:5000/attendences/update/' + this.props.match.params.id, event)
+      .then(res => console.log(res.data));
+
+    window.location = '/';
+  }
   render() {
     return (
       <div>
@@ -90,6 +114,7 @@ export default class AttendancesList extends Component {
               <th>Email</th>
               <th>College</th>
               <th>Year</th>
+              <th>Present</th>
               <th>Actions</th>
             </tr>
           </thead>

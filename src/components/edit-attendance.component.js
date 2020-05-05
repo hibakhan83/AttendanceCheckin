@@ -11,6 +11,7 @@ export default class EditExercise extends Component {
     this.onChangeDescription = this.onChangeDescription.bind(this);
     this.onChangeDuration = this.onChangeDuration.bind(this);
     this.onChangeDate = this.onChangeDate.bind(this);
+    this.onChangeAttendance = this.onChangeAttendance.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
@@ -24,6 +25,7 @@ export default class EditExercise extends Component {
       email: '',
       college: '',
       year: 0,
+      present: 'no',
       users: []
     }
   }
@@ -41,7 +43,8 @@ export default class EditExercise extends Component {
           degree: response.data.degree,
           email: response.data.email,
           college: response.data.college,
-          year: response.data.year
+          year: response.data.year,
+          present: response.data.present
         })   
       })
       .catch(function (error) {
@@ -120,7 +123,11 @@ export default class EditExercise extends Component {
     })
   }
 
-
+  onChangeAttendance(e) {
+    this.setState({
+      year: 'yes'
+    })
+  }
 
   onSubmit(e) {
     e.preventDefault();
@@ -135,7 +142,8 @@ export default class EditExercise extends Component {
       degree: this.state.degree,
       email: this.state.email,
       college: this.state.college,
-      year: this.state.year
+      year: this.state.year,
+      present: this.state.present
     }
 
     console.log(attendance);
