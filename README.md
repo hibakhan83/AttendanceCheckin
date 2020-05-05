@@ -2,7 +2,24 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
-In the project directory, you can run:
+In the project directory, start by running:
+
+### `npm install`
+
+Then move into the backend directory and run:
+
+### `nodemon server`
+
+If this does not run for you, install nodemon with:
+
+### `npm install -g nodemon`
+
+Make sure nodemon server is running and you see a message that says:
+
+Server is running on port: 5000
+MongoDB database connection established successfully
+
+In a new terminal move to the project directory and run:
 
 ### `npm start`
 
